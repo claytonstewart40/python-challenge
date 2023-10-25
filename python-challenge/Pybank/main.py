@@ -1,5 +1,5 @@
 import csv
-filepath = "Resources/budget_data.csv"
+filepath = "Pybank/Resources/budget_data.csv"
 
 #we want to open the file, after having shown the path.
 fileopen = open(filepath, "r")
