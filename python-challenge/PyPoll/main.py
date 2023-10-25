@@ -1,5 +1,5 @@
 import csv
-filepath = "PyPoll/Resources/election_data.csv"
+filepath = "Resources/election_data.csv"
 
 #we want to open the file, after having shown the path.
 fileopen = open(filepath, "r")
