@@ -1,5 +1,5 @@
 import csv
-fileload = "Pybank/Resources/budget_data.csv"
+fileload = "Resources/budget_data.csv"
 fileoutput = "Analysis/analysis.txt"
 
 profit = []
