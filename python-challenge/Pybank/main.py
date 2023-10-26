@@ -1,9 +1,7 @@
 import csv
-filepath = "Pybank/Resources/budget_data.csv"
+fileload = "Pybank/Resources/budget_data.csv"
+fileoutput = "Analysis/analysis.txt"
 
-#we want to open the file, after having shown the path.
-fileopen = open(filepath, "r")
-#print(fileopen.read())
 profit = []
 monthlychange = []
 date = []
@@ -12,7 +10,7 @@ totalprofit = 0
 totalchange = 0 
 initial = 0
 #better way to do it
-with open(filepath, "r") as budget:
+with open(fileload, "r") as budget:
     reader = csv.reader(budget, delimiter=",")
     header = next(reader)
     for row in reader:
@@ -35,7 +33,14 @@ print("-----------------------")
 print("Total Months: " + str(count))
 print("Total Profits: $"+ str(totalprofit))
 print("Average Change: $"+ str(totalchange/count))
-#Ask what is going on with a negative average for a positive total?
 print("Greatest Increase in Profits: " +str(increasedate)+ " ($" + str(greatestincrease) + ")")
 print("Great Decrease in Profits: " +str(decreasedate)+ " ($" + str(greatestdecrease) + ")")
-                                                                
+                                                            
+with open(fileoutput, 'w') as text:
+    text.write("Financial Analysis\n")
+    text.write("-----------------------\n")
+    text.write("Total Months: " + str(count) + "\n")
+    text.write("Total Profits: $"+ str(totalprofit) + "\n")
+    text.write("Average Change: $"+ str(totalchange/count) + "\n")
+    text.write("Greatest Increase in Profits: " +str(increasedate)+ " ($" + str(greatestincrease) + ")\n")
+    text.write("Great Decrease in Profits: " +str(decreasedate)+ " ($" + str(greatestdecrease) + ")\n")
