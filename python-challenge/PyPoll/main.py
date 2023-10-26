@@ -1,8 +1,6 @@
 import csv
-filepath = "Resources/election_data.csv"
-
-#we want to open the file, after having shown the path.
-fileopen = open(filepath, "r")
+fileload = "Resources/election_data.csv"
+fileoutput = "analysis/analysis.txt"
 
 count = 0
 candidates = []
@@ -10,7 +8,7 @@ candidate = []
 countvote = []
 percentvote = []
 
-with open(filepath, "r") as poll:
+with open(fileload, "r") as poll:
     reader = csv.reader(poll, delimiter=",")
     header = next(reader)
     for row in reader:
@@ -35,7 +33,7 @@ for x in range(len(candidate)):
 print("-----------------------")
 print("Winner:" + winner)
 
-with open('analysis.txt', 'w') as text:
+with open(fileoutput, 'w') as text:
     text.write("Election Results\n")
     text.write("-----------------------\n")
     text.write("Total Votes:" + str(count) + "\n")
